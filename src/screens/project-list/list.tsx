@@ -1,4 +1,5 @@
 import React from "react";
+import { useMount } from "common";
 // @ts-ignore
 export const List = ({ list, users }) => {
   return (
@@ -12,13 +13,13 @@ export const List = ({ list, users }) => {
         </thead>
         <tbody>
           {/*  @ts-ignore */}
-          {list.map((project, index) => (
+          {list?.map((project, index) => (
             <tr key={index}>
               <td>{project.name}</td>
               <td>
                 {/*  @ts-ignore */}
 
-                {users.find((user) => user.id === project.personId)?.name}
+                {users?.find((user) => user.id === project.personId)?.name}
               </td>
             </tr>
           ))}
