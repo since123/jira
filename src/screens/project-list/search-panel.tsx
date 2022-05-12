@@ -1,7 +1,17 @@
 import React from "react";
-
-/*  @ts-ignore */
-export const SearchPanel = ({ param, setParam, users }) => {
+export interface User {
+  id: string;
+  name: string;
+}
+interface SearchPanelProps {
+  users: User[];
+  param: {
+    name: string;
+    personId: string;
+  };
+  setParam: (param: SearchPanelProps["param"]) => void;
+}
+export const SearchPanel = ({ param, setParam, users }: SearchPanelProps) => {
   return (
     <form>
       <div>
@@ -24,7 +34,6 @@ export const SearchPanel = ({ param, setParam, users }) => {
             })
           }
         >
-          {/*  @ts-ignore */}
           {users?.map((user) => (
             <option key={user.id} value={user.id}>
               {user.name}

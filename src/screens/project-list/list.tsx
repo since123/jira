@@ -1,7 +1,15 @@
 import React from "react";
-import { useMount } from "common";
-// @ts-ignore
-export const List = ({ list, users }) => {
+import { User } from "screens/project-list/search-panel";
+interface Project {
+  id: string;
+  name: string;
+  personId: string;
+}
+interface ListProps {
+  list: Project[];
+  users: User[];
+}
+export const List = ({ list, users }: ListProps) => {
   return (
     <div>
       <table>
@@ -12,13 +20,10 @@ export const List = ({ list, users }) => {
           </tr>
         </thead>
         <tbody>
-          {/*  @ts-ignore */}
           {list?.map((project, index) => (
             <tr key={index}>
               <td>{project.name}</td>
               <td>
-                {/*  @ts-ignore */}
-
                 {users?.find((user) => user.id === project.personId)?.name}
               </td>
             </tr>
